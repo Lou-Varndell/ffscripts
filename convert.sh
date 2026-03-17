@@ -12,8 +12,8 @@ echo "Container: $container"
 echo "Audio Codec: $acodec"
 echo "Video Codec: $vcodec"
 
-ffmpeg -i "${input}" -map 0:v:0 -map 0:a:0 -c:v h264_videotoolbox -b:v 6M -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart "${output}"
-# ffmpeg -i "${input}" -map 0:v:0 -map 0:a:0 -c:v libx264 -preset slow -crf 20 -maxrate 10M -bufsize 20M -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart "${output}"
+ffmpeg -i "${input}" -map 0:v:0 -map 0:a? -map 0:s? -c:v h264_videotoolbox -b:v 6M -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart "${output}"
+# ffmpeg -i "${input}" -map 0:v:0 -map 0:a? -map 0:s? -c:v libx264 -preset slow -crf 20 -maxrate 10M -bufsize 20M -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart "${output}"
 
 container=$(ffprobe -v error -show_entries format=format_name -of default=nw=1:nk=1 "${output}")
 acodec=$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "${output}")

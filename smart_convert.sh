@@ -21,7 +21,7 @@ for f in *.mkv *.webm *.mp4 *.mov; do
     echo "⚙ Converting -> $outfile"
 
     ffmpeg -i "$f" \
-        -map 0:v:0 -map 0:a:0 \
+        -map 0:v:0 -map 0:a? -map 0:s? \
         -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p \
         -c:a aac -b:a 160k \
         -movflags +faststart \

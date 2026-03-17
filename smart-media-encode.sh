@@ -28,7 +28,7 @@ encode_file() {
     aopts="-c:a aac -b:a 160k"
   fi
 
-  ffmpeg -y -i "$input" -map 0:v:0 -map 0:a:0 $vopts $aopts -movflags +faststart "$output"
+  ffmpeg -y -i "$input" -map 0:v:0 -map 0:a? -map 0:s? $vopts $aopts -movflags +faststart "$output"
 
 }
 
