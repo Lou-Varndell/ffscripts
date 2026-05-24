@@ -2,12 +2,6 @@
 
 
 jq '{
-  format: {
-    filename: .format.filename,
-    duration: .format.duration,
-    bitrate: .format.bit_rate,
-    tags: .format.tags
-  },
   video: (
     .streams[] | select(.codec_type=="video") | {
       codec: .codec_name,

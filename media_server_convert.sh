@@ -34,7 +34,7 @@ do
         continue
     fi
 
-    outfile="${file%.*}.mp4"
+    outfile="${file%.*}_1.mp4"
 
     if [[ -f "$outfile" ]]; then
         echo "Output exists — skipping"

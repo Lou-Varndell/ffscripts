@@ -29,3 +29,10 @@ for f in *.mkv *.webm *.mp4 *.mov; do
 
     echo
 done
+
+# ffmpeg -i "The.Equalizer.3.mkv" \
+# -map 0:v:0 -map 0:a:0 \
+# -c:v h264_videotoolbox -b:v 6000k -pix_fmt yuv420p \
+# -c:a copy \
+# -movflags +faststart \
+# "The.Equalizer.3.mp4"

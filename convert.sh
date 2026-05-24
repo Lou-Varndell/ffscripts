@@ -2,7 +2,7 @@
 
 
 input="$1"
-output="${input%.*}.mp4"
+output="${input%.*}_1.mp4"
 
 container=$(ffprobe -v error -show_entries format=format_name -of default=nw=1:nk=1 "${input}")
 acodec=$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "${input}")
@@ -22,7 +22,7 @@ vcodec=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -o
 echo "Container: $container"
 echo "Audio Codec: $acodec"
 echo "Video Codec: $vcodec"
-
+# https://killercup.github.io/trpl-ebook/trpl-2016-10-01.a4.pdf
 
 # find . -type f \( -iname "*.webm" -o -iname "*.mkv" -o -iname "*.mp4" \) -print0 | while IFS= read -r -d '' f; do
 #   echo
